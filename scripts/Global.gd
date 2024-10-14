@@ -1,23 +1,6 @@
 extends Node
 
-### SESSION INFO
-var class_num = 1
-
-### NIGHT INFO
-var power : float = 100.0
-var power_usage : int = 1
-var time : int = 0 # seconds
-var cams : bool = false
-
-var left_door : bool = false
-var right_door : bool = false
-
-# Array[String, Vector2]
-var office_left_student
-var office_right_student
-
 const POWER_DRAIN = [
-    0.1,
     0.125,
     0.14,
     0.15,
@@ -45,6 +28,24 @@ const OFFICE_POS = {
     "right_window": Vector2(956, 337),
     "right_door"  : Vector2(1146, 335)
 }
+
+## SESSION INFO
+var class_num = 1
+
+## NIGHT INFO
+var power : float = 100.0
+var power_usage : int = 1
+var time : int = 0 # seconds
+var cams : bool = false
+var alive : bool = true
+
+var left_door : bool = false
+var right_door : bool = false
+
+# Array[String, Vector2]
+var office_left_student
+var office_right_student
+
 
 # const LOCATIONS = {
 #     "big_gym": ["north_hall", "small_gym", "old_cafe", "commons"],

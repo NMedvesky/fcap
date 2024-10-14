@@ -1,7 +1,5 @@
 extends Node2D
 
-var office_scene = preload("res://scenes/office.tscn")
-
 func wait(seconds):
     await get_tree().create_timer(seconds).timeout
 
@@ -32,7 +30,7 @@ func _on_new_game_pressed():
     Students.andy.init(root)
     Students.sean.init(root)
     Students.john.init(root)
-    get_tree().change_scene_to_packed(office_scene)
+    SceneSwitcher.switch_scene("res://scenes/office.tscn")
 
 ### Hover selection arrows >>
 func add_selection_arrows(button):

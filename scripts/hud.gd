@@ -17,7 +17,7 @@ func _ready():
 func _physics_process(delta):
     if Global.power <= 0: return
 
-    Global.power -= Global.power_usage * Global.POWER_DRAIN[Global.class_num] * delta
+    Global.power -= Global.power_usage * Global.POWER_DRAIN[Global.class_num - 1] * delta
     if Global.power <= 0:
         Global.power = 0
         SignalBus.power_outage.emit()
@@ -28,10 +28,14 @@ func _on_clock_timer_timeout():
     """ Ran every second """
     Global.time += 1
     if Global.time % 60 == 0:
-        %Time.text = "%s AM" % str(Global.time / 60)
-        
+        if not Global.alive: return
         if Global.time / 60 == 6:
             SignalBus.class_over.emit()
+            SceneSwitcher.switch_scene("res://scenes/class_over.tscn")
+            return
+
+        %Time.text = "%s AM" % str(Global.time / 60)
+        
 
 func _on_power_outage():
     Global.power_usage -= 1

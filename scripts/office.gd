@@ -1,13 +1,10 @@
 extends Node2D
 
-const SPEED = 0.0035
-var scroll_speed = 0
-var shader_scroll
-
+const SPEED = 0.0035 # Scroll speed
 const DOOR_TIME = 0.3
 
-# var left_door_moving : bool = false
-# var right_door_moving : bool = false
+var scroll_speed = 0
+var shader_scroll
 
 var left_light_on : bool = false
 var right_light_on : bool = false
@@ -51,9 +48,11 @@ func _on_power_outage():
     %Office/DarkAndy.visible = true
 
 func _on_jumpscare(student_name):
+    Global.alive = false
+
     # jump scare here
     
-    get_tree().change_scene_to_file("res://scenes/death.tscn")
+    SceneSwitcher.switch_scene("res://scenes/class_over.tscn")
 
 func _on_left_area_mouse_entered():
     scroll_speed = -SPEED 
