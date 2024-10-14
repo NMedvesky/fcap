@@ -1,9 +1,10 @@
 [gd_resource type="StyleBoxFlat" format=3 uid="uid://eidtbqnylfeh"]
 
 [resource]
-bg_color = Color(0.75353, 0.0434442, 0.0428038, 1)
+bg_color = Color(0.600473, 0.025248, 0.0253018, 1)
 skew = Vector2(0, 0.025)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
+border_color = Color(0.507341, 0.572717, 0.612442, 1)

@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxhritgu733yp"]
+[gd_scene load_steps=11 format=3 uid="uid://cxhritgu733yp"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_egnvw"]
 [ext_resource type="Texture2D" uid="uid://fhwgvg6yel0e" path="res://assets/andy.png" id="2_vd2sy"]
 [ext_resource type="Texture2D" uid="uid://daysfys1j15is" path="res://assets/andy3.png" id="3_1nenl"]
 [ext_resource type="Shader" path="res://static_shader.gdshader" id="3_4vg7o"]
 [ext_resource type="Texture2D" uid="uid://dguimrjyk1tkc" path="res://assets/andy2.png" id="4_svbk6"]
+[ext_resource type="FontFile" uid="uid://bbukuelexghp0" path="res://assets/Volter.ttf" id="6_axw02"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sdrxs"]
 animations = [{
@@ -189,7 +190,7 @@ offset_top = 619.0
 offset_right = 57.0
 offset_bottom = 636.0
 grow_vertical = 0
-text = "v0.3.0"
+text = "v0.3.1"
 vertical_alignment = 2
 
 [node name="copyright" type="Label" parent="Control"]
@@ -236,6 +237,7 @@ offset_right = 620.0
 offset_bottom = 316.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_fonts/font = ExtResource("6_axw02")
 theme_override_font_sizes/font_size = 25
 text = "12:00 AM
 Class 1"

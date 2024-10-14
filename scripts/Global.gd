@@ -1,5 +1,9 @@
 extends Node
 
+### SESSION INFO
+var class_num = 1
+
+### NIGHT INFO
 var power : float = 100.0
 var power_usage : int = 1
 var time : int = 0 # seconds
@@ -12,7 +16,13 @@ var right_door : bool = false
 var office_left_student
 var office_right_student
 
-const POWER_DRAIN = 0.16667
+const POWER_DRAIN = [
+    0.1,
+    0.125,
+    0.14,
+    0.15,
+    0.16667
+]
 
 const LOCATIONS = {
     "big_gym"     : ["north_hall", "small_gym", "old_cafe", "commons"],

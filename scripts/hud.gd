@@ -17,7 +17,7 @@ func _ready():
 func _physics_process(delta):
     if Global.power <= 0: return
 
-    Global.power -= Global.power_usage * Global.POWER_DRAIN * delta
+    Global.power -= Global.power_usage * Global.POWER_DRAIN[Global.class_num] * delta
     if Global.power <= 0:
         Global.power = 0
         SignalBus.power_outage.emit()
@@ -74,23 +74,34 @@ func _on_power_change():
         %PS2.visible = false
         %PS3.visible = false
         %PS4.visible = false
+        %PS5.visible = false
     elif Global.power_usage == 1:
         %PS1.visible = true
         %PS2.visible = false
         %PS3.visible = false
         %PS4.visible = false
+        %PS5.visible = false
     elif Global.power_usage == 2:
         %PS1.visible = true
         %PS2.visible = true
         %PS3.visible = false
         %PS4.visible = false
+        %PS5.visible = false
     elif Global.power_usage == 3:
         %PS1.visible = true
         %PS2.visible = true
         %PS3.visible = true
         %PS4.visible = false
-    elif Global.power_usage >= 4:
+        %PS5.visible = false
+    elif Global.power_usage == 4:
         %PS1.visible = true
         %PS2.visible = true
         %PS3.visible = true
         %PS4.visible = true
+        %PS5.visible = false
+    elif Global.power_usage >= 5:
+        %PS1.visible = true
+        %PS2.visible = true
+        %PS3.visible = true
+        %PS4.visible = true
+        %PS5.visible = true

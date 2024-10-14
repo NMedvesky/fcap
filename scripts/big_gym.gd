@@ -2,7 +2,14 @@ extends Node2D
 
 const room = "big_gym"
 
-func _physics_process(_delta):
+func _ready():
+    update()
+    SignalBus.student_moved.connect(_on_student_moved)
+
+func _on_student_moved(_student, _location):
+    update()
+
+func update():
     $Andy.visible = false
     $Sean.visible = false
     $John.visible = false

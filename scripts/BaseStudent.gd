@@ -14,31 +14,42 @@ var movement_chance : float # 0 - 1
 var move_on_cams : bool
 var level : int
 var student_name : String
+var timer 
 
 func init(root):
     possible_locations = default_possible_locations
 
-    var timer = Timer.new()
+    timer = Timer.new()
     timer.timeout.connect(_on_timer_timeout)
     timer.wait_time = movement_delay
     timer.autostart = true
     root.add_child(timer)
+
+    SignalBus.jumpscare.connect(_on_jumpscare)
 
 func update_level(lev):
     level = lev
     movement_delay = 15 - (level * 0.5) + randf_range(0, 3)
     movement_chance = level * 0.05
 
+func reset_student():
+    location = "big_gym"
+    possible_locations = default_possible_locations
+    SignalBus.student_moved.emit(student_name, location)
+
+func _on_jumpscare(student):
+    self.queue_free()
+
 func _on_timer_timeout():
     if (Global.cams and move_on_cams) or (not Global.cams):
-        if randf() > movement_chance:
+        var bonus_chance = int(location == "door_left" or location == "door_right") * 0.2
+        if randf() > movement_chance + bonus_chance:
             return
 
         if location == "door_left":
             if Global.left_door:
-                location = "big_gym"
-                SignalBus.student_moved.emit(student_name, location)
-                # Global.office_left_student = [student_name, Global.OFFICE_POS["left_door"]]
+                Global.office_left_student = false
+                reset_student()
                 return
             else:
                 SignalBus.jumpscare.emit(student_name)
@@ -46,8 +57,8 @@ func _on_timer_timeout():
 
         elif location == "door_right":
             if Global.right_door:
-                location = "big_gym"
-                SignalBus.student_moved.emit(student_name, location)
+                Global.office_right_student = false
+                reset_student()
                 return
             else:
                 SignalBus.jumpscare.emit(student_name)

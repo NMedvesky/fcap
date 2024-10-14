@@ -2,7 +2,14 @@ extends Node2D
 
 const room = "commons"
 
-func _physics_process(_delta):
+func _ready():
+    update()
+    SignalBus.student_moved.connect(_on_student_moved)
+
+func _on_student_moved(_student, _location):
+    update()
+
+func update():
     # if Students.sean.location == room:
     #     $Sean.visible = true
 

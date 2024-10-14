@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://qv8s8gykqkj5"]
+[gd_scene load_steps=21 format=3 uid="uid://qv8s8gykqkj5"]
 
 [ext_resource type="Script" path="res://scripts/office.gd" id="1_07v87"]
 [ext_resource type="Material" uid="uid://bpkqeb1m51icy" path="res://displacement_shader.tres" id="2_7hdpr"]
@@ -10,7 +10,9 @@
 [ext_resource type="StyleBox" uid="uid://eidtbqnylfeh" path="res://door_button.tres" id="6_xt558"]
 [ext_resource type="Shader" path="res://static_shader.gdshader" id="7_0jlsc"]
 [ext_resource type="Texture2D" uid="uid://hmx07nkhv4bq" path="res://assets/office/walls.png" id="7_6ojnw"]
+[ext_resource type="Texture2D" uid="uid://5n20845gliv2" path="res://assets/andy_dark.png" id="7_c17fb"]
 [ext_resource type="PackedScene" uid="uid://baqi14unvsack" path="res://scenes/hud.tscn" id="8_72fp2"]
+[ext_resource type="StyleBox" uid="uid://c6d1p2jownw0n" path="res://light_button.tres" id="10_vyocw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ucd8o"]
 size = Vector2(257, 688)
@@ -19,6 +21,14 @@ size = Vector2(257, 688)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhuft"]
 bg_color = Color(0.989077, 0.161052, 0.131075, 1)
+skew = Vector2(0, 0.025)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7u1s2"]
+bg_color = Color(1, 1, 1, 1)
 skew = Vector2(0, 0.025)
 border_width_left = 5
 border_width_top = 5
@@ -90,26 +100,54 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Background" type="Sprite2D" parent="CanvasLayer/ScrollView/SubViewport/Office"]
+modulate = Color(0.707967, 0.707967, 0.707967, 1)
 position = Vector2(742.08, 328.562)
 scale = Vector2(0.79, 0.79)
 texture = ExtResource("5_421ll")
 
 [node name="Andy" type="Sprite2D" parent="CanvasLayer/ScrollView/SubViewport/Office"]
 visible = false
+modulate = Color(0.486275, 0.486275, 0.486275, 1)
 scale = Vector2(0.715, 0.615)
 texture = ExtResource("3_gcs1j")
 
 [node name="John" type="Sprite2D" parent="CanvasLayer/ScrollView/SubViewport/Office"]
 visible = false
+modulate = Color(0.486275, 0.486275, 0.486275, 1)
 position = Vector2(1139, 344)
 scale = Vector2(0.697, 0.597)
 texture = ExtResource("4_b62ti")
 
 [node name="Sean" type="Sprite2D" parent="CanvasLayer/ScrollView/SubViewport/Office"]
 visible = false
+modulate = Color(0.485703, 0.485704, 0.485703, 1)
 position = Vector2(251, 337)
 scale = Vector2(0.735, 0.635)
 texture = ExtResource("5_bd8ah")
+
+[node name="LeftDarkness" type="Polygon2D" parent="CanvasLayer/ScrollView/SubViewport/Office"]
+position = Vector2(-0.582092, 0)
+scale = Vector2(1.00498, 1)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(681.193, 106, 577.708, 524, 112.025, 532, 117, 93)
+
+[node name="RightDarkness" type="Polygon2D" parent="CanvasLayer/ScrollView/SubViewport/Office"]
+position = Vector2(588, 18)
+scale = Vector2(1.00498, 1)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(689.569, 80, 677.629, 512, 233.837, 506, 115.426, 78)
+
+[node name="MiddleDarkness" type="Polygon2D" parent="CanvasLayer/ScrollView/SubViewport/Office"]
+position = Vector2(588, 18)
+scale = Vector2(1.00498, 1)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(243.787, 502, -19.901, 505, 109.455, 28)
+
+[node name="DarkAndy" type="Sprite2D" parent="CanvasLayer/ScrollView/SubViewport/Office"]
+visible = false
+position = Vector2(248, 350)
+scale = Vector2(0.755, 0.655)
+texture = ExtResource("7_c17fb")
 
 [node name="RightDoor" type="Sprite2D" parent="CanvasLayer/ScrollView/SubViewport/Office"]
 unique_name_in_owner = true
@@ -125,6 +163,7 @@ texture = ExtResource("4_eaq8t")
 flip_h = true
 
 [node name="Walls" type="Sprite2D" parent="CanvasLayer/ScrollView/SubViewport/Office"]
+modulate = Color(0.537011, 0.537011, 0.537011, 1)
 position = Vector2(742.08, 328.562)
 scale = Vector2(0.79, 0.79)
 texture = ExtResource("7_6ojnw")
@@ -151,6 +190,34 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_nhuft")
 theme_override_styles/normal = ExtResource("6_xt558")
 toggle_mode = true
 
+[node name="LeftLightButton" type="Button" parent="CanvasLayer/GUIControl"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -81.0
+offset_top = 222.0
+offset_right = -21.0
+offset_bottom = 282.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f2x4e")
+theme_override_styles/disabled = ExtResource("10_vyocw")
+theme_override_styles/hover = ExtResource("10_vyocw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7u1s2")
+theme_override_styles/normal = ExtResource("10_vyocw")
+toggle_mode = true
+
+[node name="RightLightButton" type="Button" parent="CanvasLayer/GUIControl"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1190.0
+offset_top = 222.0
+offset_right = 1250.0
+offset_bottom = 282.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f2x4e")
+theme_override_styles/disabled = ExtResource("10_vyocw")
+theme_override_styles/hover = ExtResource("10_vyocw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_7u1s2")
+theme_override_styles/normal = ExtResource("10_vyocw")
+toggle_mode = true
+
 [node name="RightDoorButton" type="Button" parent="CanvasLayer/GUIControl"]
 unique_name_in_owner = true
 layout_mode = 0
@@ -166,7 +233,7 @@ theme_override_styles/normal = ExtResource("6_xt558")
 toggle_mode = true
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-modulate = Color(1, 1, 1, 0.505882)
+modulate = Color(1, 1, 1, 0.392157)
 offset_right = 1152.0
 offset_bottom = 648.0
 mouse_filter = 2
@@ -186,4 +253,6 @@ color = Color(0, 0, 0, 1)
 [connection signal="mouse_entered" from="RightArea" to="." method="_on_right_area_mouse_entered"]
 [connection signal="mouse_exited" from="RightArea" to="." method="_on_right_area_mouse_exited"]
 [connection signal="toggled" from="CanvasLayer/GUIControl/LeftDoorButton" to="." method="_on_left_door_button_toggled"]
+[connection signal="toggled" from="CanvasLayer/GUIControl/LeftLightButton" to="." method="_on_left_light_button_toggled"]
+[connection signal="toggled" from="CanvasLayer/GUIControl/RightLightButton" to="." method="_on_right_light_button_toggled"]
 [connection signal="toggled" from="CanvasLayer/GUIControl/RightDoorButton" to="." method="_on_right_door_button_toggled"]

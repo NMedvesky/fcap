@@ -1,9 +1,6 @@
 extends Node2D
 
-# var simultaneous_scene = preload("res://office.tscn").instantiate()
-#
-# func _add_a_scene_manually():
-#     get_tree().root.add_child(simultaneous_scene)
+var office_scene = preload("res://scenes/office.tscn")
 
 func wait(seconds):
     await get_tree().create_timer(seconds).timeout
@@ -27,6 +24,7 @@ func _on_new_game_pressed():
     tween.tween_interval(1)
     await tween.finished
 
+    $Class.text = $Class.text.left(-1) + str(Global.class_num)
     $Class.visible = true
     await wait(2)
     
@@ -34,7 +32,7 @@ func _on_new_game_pressed():
     Students.andy.init(root)
     Students.sean.init(root)
     Students.john.init(root)
-    get_tree().change_scene_to_file("res://scenes/office.tscn")
+    get_tree().change_scene_to_packed(office_scene)
 
 ### Hover selection arrows >>
 func add_selection_arrows(button):
