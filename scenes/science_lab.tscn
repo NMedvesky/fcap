@@ -1,0 +1,40 @@
+[gd_scene load_steps=6 format=3 uid="uid://cwnspdf1ydtv7"]
+
+[ext_resource type="Script" path="res://scripts/science_lab.gd" id="1_oglgc"]
+[ext_resource type="Texture2D" uid="uid://byp0pnapea7se" path="res://assets/cams/science_lab.png" id="2_ctmyf"]
+[ext_resource type="Texture2D" uid="uid://fhwgvg6yel0e" path="res://assets/andy.png" id="3_gwd3n"]
+[ext_resource type="Texture2D" uid="uid://d2ywt8gvu5dy" path="res://assets/sean.png" id="4_q2pcd"]
+[ext_resource type="Texture2D" uid="uid://ci55a6guqfakm" path="res://assets/john.png" id="5_egn2p"]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_oglgc")
+
+[node name="ScienceLab" type="Sprite2D" parent="."]
+position = Vector2(576, 334.23)
+scale = Vector2(1.212, 1.212)
+texture = ExtResource("2_ctmyf")
+
+[node name="Andy" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(185, 500)
+scale = Vector2(1.14904, 1.14904)
+texture = ExtResource("3_gwd3n")
+
+[node name="Sean" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(429, 433)
+scale = Vector2(0.669437, 0.669437)
+texture = ExtResource("4_q2pcd")
+
+[node name="John" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(636, 466)
+scale = Vector2(0.811812, 0.811812)
+texture = ExtResource("5_egn2p")
+
+[node name="Sean2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(324, 1143)
+rotation = 0.0461325
+scale = Vector2(4.33905, 4.33905)
+texture = ExtResource("4_q2pcd")

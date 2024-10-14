@@ -1,0 +1,321 @@
+[gd_scene load_steps=36 format=3 uid="uid://baqi14unvsack"]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_emqp8"]
+[ext_resource type="FontFile" uid="uid://bbukuelexghp0" path="res://assets/Volter.ttf" id="1_o4w1q"]
+[ext_resource type="Texture2D" uid="uid://hodl2ktw877s" path="res://assets/flip_camera_button.png" id="3_jnajn"]
+[ext_resource type="Texture2D" uid="uid://crwuw05v8a8su" path="res://assets/camera_animation/0001.png" id="4_mdxfi"]
+[ext_resource type="Texture2D" uid="uid://frfn60assudr" path="res://assets/camera_animation/0002.png" id="5_skw00"]
+[ext_resource type="Texture2D" uid="uid://035l1q0gpjjd" path="res://assets/camera_animation/0003.png" id="6_50rqb"]
+[ext_resource type="Texture2D" uid="uid://dbeqbu3ax6cgi" path="res://assets/camera_animation/0004.png" id="7_t6ou5"]
+[ext_resource type="Texture2D" uid="uid://b70t1y1k8sohp" path="res://assets/camera_animation/0005.png" id="8_0q1y0"]
+[ext_resource type="Texture2D" uid="uid://cuiv4jahveslu" path="res://assets/camera_animation/0006.png" id="9_ly87o"]
+[ext_resource type="Texture2D" uid="uid://cv8y3e3i538t" path="res://assets/camera_animation/0007.png" id="10_jg5vf"]
+[ext_resource type="Texture2D" uid="uid://egih458yfm0h" path="res://assets/camera_animation/0008.png" id="11_0rnm6"]
+[ext_resource type="Texture2D" uid="uid://dp00coj5posn6" path="res://assets/camera_animation/0009.png" id="12_1k5li"]
+[ext_resource type="Texture2D" uid="uid://d2xaejm51qyu" path="res://assets/camera_animation/0010.png" id="13_juepd"]
+[ext_resource type="Texture2D" uid="uid://clo88ka6q7eae" path="res://assets/camera_animation/0011.png" id="14_s5gs5"]
+[ext_resource type="Texture2D" uid="uid://c8oixlcta2od7" path="res://assets/camera_animation/0012.png" id="15_i8vwi"]
+[ext_resource type="Texture2D" uid="uid://67mvp41h8854" path="res://assets/camera_animation/0013.png" id="16_de8wg"]
+[ext_resource type="Texture2D" uid="uid://dv6wgis443uxc" path="res://assets/camera_animation/0014.png" id="17_p6v1y"]
+[ext_resource type="Texture2D" uid="uid://f62ju6xvrnqc" path="res://assets/camera_animation/0015.png" id="18_w0e4c"]
+[ext_resource type="Texture2D" uid="uid://dkkee5a7c870p" path="res://assets/camera_animation/0016.png" id="19_sf7hq"]
+[ext_resource type="Texture2D" uid="uid://cfw814norjfvo" path="res://assets/camera_animation/0017.png" id="20_v3tue"]
+[ext_resource type="Texture2D" uid="uid://2riuh41vruqh" path="res://assets/camera_animation/0018.png" id="21_bgwed"]
+[ext_resource type="Texture2D" uid="uid://7witbpn037sb" path="res://assets/camera_animation/0019.png" id="22_mivni"]
+[ext_resource type="Texture2D" uid="uid://cy1syovrbduf7" path="res://assets/camera_animation/0020.png" id="23_ge3br"]
+[ext_resource type="Texture2D" uid="uid://bxhq1eyk8w8nf" path="res://assets/camera_animation/0021.png" id="24_owe2q"]
+[ext_resource type="Texture2D" uid="uid://ct0hfpwha61hv" path="res://assets/camera_animation/0022.png" id="25_h5oj8"]
+[ext_resource type="Texture2D" uid="uid://ch5yxjoud8tm8" path="res://assets/camera_animation/0023.png" id="26_c3exy"]
+[ext_resource type="Texture2D" uid="uid://cyp46ynfpi2q5" path="res://assets/camera_animation/0024.png" id="27_1k71d"]
+[ext_resource type="Texture2D" uid="uid://cxirgi240lkn5" path="res://assets/camera_animation/0025.png" id="28_5l8so"]
+[ext_resource type="Texture2D" uid="uid://ddgoxqi437lt0" path="res://assets/camera_animation/0026.png" id="29_sooti"]
+[ext_resource type="Texture2D" uid="uid://1fi6iuguttaa" path="res://assets/camera_animation/0027.png" id="30_cio5g"]
+[ext_resource type="Texture2D" uid="uid://mck6kcfxadtc" path="res://assets/camera_animation/0028.png" id="31_vkvt5"]
+[ext_resource type="Texture2D" uid="uid://v7noawvihigv" path="res://assets/camera_animation/0029.png" id="32_am28a"]
+[ext_resource type="Texture2D" uid="uid://bhn555081aev1" path="res://assets/camera_animation/0030.png" id="33_xf4ud"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fdr3m"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_mdxfi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_skw00")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_50rqb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_t6ou5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_0q1y0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ly87o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_jg5vf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_0rnm6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_1k5li")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_juepd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_s5gs5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_i8vwi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_de8wg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_p6v1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_w0e4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_sf7hq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_v3tue")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_bgwed")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_mivni")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_ge3br")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_owe2q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_h5oj8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_c3exy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_1k71d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_5l8so")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_sooti")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_cio5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_vkvt5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_am28a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_xf4ud")
+}],
+"loop": false,
+"name": &"default",
+"speed": 60.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_enreg"]
+size = Vector2(515, 78)
+
+[node name="HUD" type="Node2D"]
+script = ExtResource("1_emqp8")
+
+[node name="CameraFlip" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-51, -26)
+scale = Vector2(1.085, 1.085)
+sprite_frames = SubResource("SpriteFrames_fdr3m")
+centered = false
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+
+[node name="Time" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -105.0
+offset_top = 12.0
+offset_right = -15.0
+offset_bottom = 46.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_o4w1q")
+theme_override_font_sizes/font_size = 30
+text = "12 AM"
+horizontal_alignment = 1
+
+[node name="Class" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -90.0
+offset_top = 46.0
+offset_right = -28.0
+offset_bottom = 65.0
+grow_horizontal = 0
+theme_override_fonts/font = ExtResource("1_o4w1q")
+text = "Class 1"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = -68.0
+offset_right = 124.0
+offset_bottom = -5.0
+grow_vertical = 0
+theme_override_constants/line_spacing = -5
+theme_override_fonts/font = ExtResource("1_o4w1q")
+text = "Power left: 
+
+Usage:"
+
+[node name="Power" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 121.0
+offset_top = -76.0
+offset_right = 182.0
+offset_bottom = -46.0
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_o4w1q")
+theme_override_font_sizes/font_size = 26
+text = "99%"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_left = -3.0
+offset_top = 1.0
+offset_right = 48.0
+offset_bottom = 41.0
+theme_override_constants/separation = 17
+
+[node name="PS1" type="Control" parent="Control/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Control/HBoxContainer/PS1"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 606.0
+offset_right = 95.0
+offset_bottom = 629.0
+color = Color(8.90419e-07, 0.628217, 0.107784, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Control/HBoxContainer/PS1"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 606.0
+offset_right = 91.0
+offset_bottom = 629.0
+color = Color(0.215686, 1, 0.278431, 1)
+
+[node name="PS2" type="Control" parent="Control/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Control/HBoxContainer/PS2"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 606.0
+offset_right = 95.0
+offset_bottom = 629.0
+color = Color(8.90419e-07, 0.628217, 0.107784, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Control/HBoxContainer/PS2"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 606.0
+offset_right = 91.0
+offset_bottom = 629.0
+color = Color(0.215686, 1, 0.278431, 1)
+
+[node name="PS3" type="Control" parent="Control/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Control/HBoxContainer/PS3"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 606.0
+offset_right = 95.0
+offset_bottom = 629.0
+color = Color(0.87451, 0.666667, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Control/HBoxContainer/PS3"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 606.0
+offset_right = 91.0
+offset_bottom = 629.0
+color = Color(0.956863, 1, 0.247059, 1)
+
+[node name="PS4" type="Control" parent="Control/HBoxContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="Control/HBoxContainer/PS4"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 606.0
+offset_right = 95.0
+offset_bottom = 629.0
+color = Color(0.604528, 0, 0.0443548, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Control/HBoxContainer/PS4"]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 606.0
+offset_right = 91.0
+offset_bottom = 629.0
+color = Color(0.996078, 0.0627451, 0.109804, 1)
+
+[node name="FlipCameraButton" type="Sprite2D" parent="Control"]
+position = Vector2(450, 606)
+texture = ExtResource("3_jnajn")
+
+[node name="FlipCamera" type="Area2D" parent="Control"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Control/FlipCamera"]
+position = Vector2(450.5, 614)
+shape = SubResource("RectangleShape2D_enreg")
+
+[node name="ClockTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="mouse_entered" from="Control/FlipCamera" to="." method="_on_flip_camera_mouse_entered"]
+[connection signal="timeout" from="ClockTimer" to="." method="_on_clock_timer_timeout"]

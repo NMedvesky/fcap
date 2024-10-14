@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://dwmwkrmshddmv"]
+
+[ext_resource type="Texture2D" uid="uid://3fpnw30p4kih" path="res://assets/cams/big_gym.png" id="1_m1eg2"]
+[ext_resource type="Texture2D" uid="uid://fhwgvg6yel0e" path="res://assets/andy.png" id="2_hh7hx"]
+[ext_resource type="Texture2D" uid="uid://d2ywt8gvu5dy" path="res://assets/sean.png" id="3_pi1d4"]
+[ext_resource type="Texture2D" uid="uid://ci55a6guqfakm" path="res://assets/john.png" id="4_7qra0"]
+[ext_resource type="Shader" path="res://static_shader.gdshader" id="5_51y5t"]
+[ext_resource type="Texture2D" uid="uid://ccjggrc0h2cvp" path="res://assets/schoolmap.png" id="6_ggv4x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5j0wu"]
+shader = ExtResource("5_51y5t")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 1.0
+shader_parameter/warp_amount = 0.1
+shader_parameter/noise_amount = 0.03
+shader_parameter/interference_amount = 0.2
+shader_parameter/grille_amount = 0.1
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.6
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/aberation_amount = 0.5
+shader_parameter/roll_line_amount = 0.3
+shader_parameter/roll_speed = 1.0
+shader_parameter/scan_line_strength = -8.0
+shader_parameter/pixel_strength = -2.0
+
+[node name="Node2D" type="Node2D"]
+
+[node name="BigGym" type="Sprite2D" parent="."]
+position = Vector2(576, 307)
+scale = Vector2(1.21243, 1.21243)
+texture = ExtResource("1_m1eg2")
+
+[node name="Andy" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(171, 497)
+scale = Vector2(0.352143, 0.352143)
+texture = ExtResource("2_hh7hx")
+
+[node name="Sean" type="Sprite2D" parent="."]
+position = Vector2(193, 537)
+texture = ExtResource("3_pi1d4")
+
+[node name="Andy2" type="Sprite2D" parent="."]
+position = Vector2(543, 769)
+scale = Vector2(2.38554, 2.38554)
+texture = ExtResource("2_hh7hx")
+
+[node name="John" type="Sprite2D" parent="."]
+position = Vector2(868, 548)
+scale = Vector2(0.699168, 0.699168)
+texture = ExtResource("4_7qra0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.607843)
+offset_right = 1175.0
+offset_bottom = 671.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Static" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_5j0wu")
+offset_left = -40.0
+offset_top = -27.0
+offset_right = 1208.0
+offset_bottom = 689.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Schoolmap" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(612, 339)
+texture = ExtResource("6_ggv4x")

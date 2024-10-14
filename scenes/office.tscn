@@ -1,0 +1,189 @@
+[gd_scene load_steps=18 format=3 uid="uid://qv8s8gykqkj5"]
+
+[ext_resource type="Script" path="res://scripts/office.gd" id="1_07v87"]
+[ext_resource type="Material" uid="uid://bpkqeb1m51icy" path="res://displacement_shader.tres" id="2_7hdpr"]
+[ext_resource type="Texture2D" uid="uid://fhwgvg6yel0e" path="res://assets/andy.png" id="3_gcs1j"]
+[ext_resource type="Texture2D" uid="uid://ci55a6guqfakm" path="res://assets/john.png" id="4_b62ti"]
+[ext_resource type="Texture2D" uid="uid://bu3ipcuupbupj" path="res://assets/office/door.png" id="4_eaq8t"]
+[ext_resource type="Texture2D" uid="uid://cfoeelvm22vx6" path="res://assets/office/background.png" id="5_421ll"]
+[ext_resource type="Texture2D" uid="uid://d2ywt8gvu5dy" path="res://assets/sean.png" id="5_bd8ah"]
+[ext_resource type="StyleBox" uid="uid://eidtbqnylfeh" path="res://door_button.tres" id="6_xt558"]
+[ext_resource type="Shader" path="res://static_shader.gdshader" id="7_0jlsc"]
+[ext_resource type="Texture2D" uid="uid://hmx07nkhv4bq" path="res://assets/office/walls.png" id="7_6ojnw"]
+[ext_resource type="PackedScene" uid="uid://baqi14unvsack" path="res://scenes/hud.tscn" id="8_72fp2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ucd8o"]
+size = Vector2(257, 688)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_f2x4e"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhuft"]
+bg_color = Color(0.989077, 0.161052, 0.131075, 1)
+skew = Vector2(0, 0.025)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_evcw2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlf4a"]
+bg_color = Color(0.992734, 0.285243, 0.23204, 1)
+skew = Vector2(0, 0.025)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eaem6"]
+shader = ExtResource("7_0jlsc")
+shader_parameter/resolution = Vector2(1152, 648)
+shader_parameter/scan_line_amount = 0.0
+shader_parameter/warp_amount = 0.0
+shader_parameter/noise_amount = 0.02
+shader_parameter/interference_amount = 0.03
+shader_parameter/grille_amount = 0.0
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.57
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/aberation_amount = 0.0
+shader_parameter/roll_line_amount = 0.0
+shader_parameter/roll_speed = 1.0
+shader_parameter/scan_line_strength = -12.0
+shader_parameter/pixel_strength = -2.0
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_07v87")
+
+[node name="LeftArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftArea"]
+position = Vector2(117.5, 326)
+shape = SubResource("RectangleShape2D_ucd8o")
+
+[node name="RightArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightArea"]
+position = Vector2(1036, 330)
+shape = SubResource("RectangleShape2D_ucd8o")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -2
+
+[node name="ScrollView" type="SubViewportContainer" parent="CanvasLayer"]
+unique_name_in_owner = true
+material = ExtResource("2_7hdpr")
+offset_left = -125.02
+offset_right = 1336.98
+offset_bottom = 650.0
+
+[node name="SubViewport" type="SubViewport" parent="CanvasLayer/ScrollView"]
+handle_input_locally = false
+size = Vector2i(1462, 648)
+render_target_update_mode = 4
+
+[node name="Office" type="Control" parent="CanvasLayer/ScrollView/SubViewport"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Background" type="Sprite2D" parent="CanvasLayer/ScrollView/SubViewport/Office"]
+position = Vector2(742.08, 328.562)
+scale = Vector2(0.79, 0.79)
+texture = ExtResource("5_421ll")
+
+[node name="Andy" type="Sprite2D" parent="CanvasLayer/ScrollView/SubViewport/Office"]
+visible = false
+scale = Vector2(0.715, 0.615)
+texture = ExtResource("3_gcs1j")
+
+[node name="John" type="Sprite2D" parent="CanvasLayer/ScrollView/SubViewport/Office"]
+visible = false
+position = Vector2(1139, 344)
+scale = Vector2(0.697, 0.597)
+texture = ExtResource("4_b62ti")
+
+[node name="Sean" type="Sprite2D" parent="CanvasLayer/ScrollView/SubViewport/Office"]
+visible = false
+position = Vector2(251, 337)
+scale = Vector2(0.735, 0.635)
+texture = ExtResource("5_bd8ah")
+
+[node name="RightDoor" type="Sprite2D" parent="CanvasLayer/ScrollView/SubViewport/Office"]
+unique_name_in_owner = true
+position = Vector2(1150, -20)
+scale = Vector2(0.799, 0.799)
+texture = ExtResource("4_eaq8t")
+
+[node name="LeftDoor" type="Sprite2D" parent="CanvasLayer/ScrollView/SubViewport/Office"]
+unique_name_in_owner = true
+position = Vector2(253, -20)
+scale = Vector2(0.798791, 0.798791)
+texture = ExtResource("4_eaq8t")
+flip_h = true
+
+[node name="Walls" type="Sprite2D" parent="CanvasLayer/ScrollView/SubViewport/Office"]
+position = Vector2(742.08, 328.562)
+scale = Vector2(0.79, 0.79)
+texture = ExtResource("7_6ojnw")
+
+[node name="GUIControl" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 650.0
+mouse_filter = 2
+
+[node name="LeftDoorButton" type="Button" parent="CanvasLayer/GUIControl"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = -81.0
+offset_top = 304.0
+offset_right = -21.0
+offset_bottom = 364.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_f2x4e")
+theme_override_styles/disabled = ExtResource("6_xt558")
+theme_override_styles/hover = ExtResource("6_xt558")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nhuft")
+theme_override_styles/normal = ExtResource("6_xt558")
+toggle_mode = true
+
+[node name="RightDoorButton" type="Button" parent="CanvasLayer/GUIControl"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1190.0
+offset_top = 307.0
+offset_right = 1250.0
+offset_bottom = 367.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_evcw2")
+theme_override_styles/disabled = ExtResource("6_xt558")
+theme_override_styles/hover = ExtResource("6_xt558")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_xlf4a")
+theme_override_styles/normal = ExtResource("6_xt558")
+toggle_mode = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+modulate = Color(1, 1, 1, 0.505882)
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0.0392157, 0.0705882, 0.109804, 1)
+
+[node name="Static" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_eaem6")
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="HUD" parent="." instance=ExtResource("8_72fp2")]
+
+[connection signal="mouse_entered" from="LeftArea" to="." method="_on_left_area_mouse_entered"]
+[connection signal="mouse_exited" from="LeftArea" to="." method="_on_left_area_mouse_exited"]
+[connection signal="mouse_entered" from="RightArea" to="." method="_on_right_area_mouse_entered"]
+[connection signal="mouse_exited" from="RightArea" to="." method="_on_right_area_mouse_exited"]
+[connection signal="toggled" from="CanvasLayer/GUIControl/LeftDoorButton" to="." method="_on_left_door_button_toggled"]
+[connection signal="toggled" from="CanvasLayer/GUIControl/RightDoorButton" to="." method="_on_right_door_button_toggled"]

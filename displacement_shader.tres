@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=4 format=3 uid="uid://bpkqeb1m51icy"]
+
+[ext_resource type="Shader" path="res://displacement.gdshader" id="1_mr15x"]
+
+[sub_resource type="Curve" id="Curve_kdgxp"]
+_data = [Vector2(0, 0.175824), 0.0, -0.179205, 0, 0, Vector2(0.987421, 0.197802), 0.537616, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_pumps"]
+curve = SubResource("Curve_kdgxp")
+
+[resource]
+shader = ExtResource("1_mr15x")
+shader_parameter/scroll = 0.0
+shader_parameter/displacement_scale = 2.0
+shader_parameter/displacement_map = SubResource("CurveTexture_pumps")

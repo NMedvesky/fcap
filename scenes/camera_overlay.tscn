@@ -1,0 +1,235 @@
+[gd_scene load_steps=10 format=3 uid="uid://crqusqhylq0jo"]
+
+[ext_resource type="Script" path="res://scripts/camera_overlay.gd" id="1_ah18j"]
+[ext_resource type="Shader" path="res://static_shader.gdshader" id="1_okjs3"]
+[ext_resource type="Texture2D" uid="uid://cxvbql84hoq0n" path="res://assets/map.png" id="2_vlknq"]
+[ext_resource type="FontFile" uid="uid://bbukuelexghp0" path="res://assets/Volter.ttf" id="3_33w3w"]
+[ext_resource type="ButtonGroup" uid="uid://43t7wp06gqmf" path="res://camera_button_group.tres" id="4_n1hgm"]
+[ext_resource type="StyleBox" uid="uid://bww25uwf0dt3v" path="res://camera_button_normal.tres" id="4_roeov"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_axh76"]
+shader = ExtResource("1_okjs3")
+shader_parameter/resolution = Vector2(320, 180)
+shader_parameter/scan_line_amount = 1.0
+shader_parameter/warp_amount = 0.1
+shader_parameter/noise_amount = 0.03
+shader_parameter/interference_amount = 0.2
+shader_parameter/grille_amount = 0.1
+shader_parameter/grille_size = 1.0
+shader_parameter/vignette_amount = 0.6
+shader_parameter/vignette_intensity = 0.4
+shader_parameter/aberation_amount = 0.5
+shader_parameter/roll_line_amount = 0.3
+shader_parameter/roll_speed = 1.0
+shader_parameter/scan_line_strength = -8.0
+shader_parameter/pixel_strength = -2.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i53xc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6jqmd"]
+bg_color = Color(0.591554, 0.744247, 0.255425, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[node name="CameraOverlay" type="Node2D"]
+script = ExtResource("1_ah18j")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.607843)
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Static" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_axh76")
+offset_right = 1152.0
+offset_bottom = 648.0
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Map" type="Sprite2D" parent="."]
+position = Vector2(902, 451.202)
+scale = Vector2(0.487558, 0.487558)
+texture = ExtResource("2_vlknq")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Commons" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1040.0
+offset_top = 350.202
+offset_right = 1120.0
+offset_bottom = 390.202
+theme_override_fonts/font = ExtResource("3_33w3w")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i53xc")
+theme_override_styles/hover = ExtResource("4_roeov")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6jqmd")
+theme_override_styles/normal = ExtResource("4_roeov")
+toggle_mode = true
+button_group = ExtResource("4_n1hgm")
+text = "COMMONS"
+alignment = 0
+metadata/location = "commons"
+
+[node name="EastHall" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 1051.0
+offset_top = 447.202
+offset_right = 1129.0
+offset_bottom = 489.202
+theme_override_fonts/font = ExtResource("3_33w3w")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i53xc")
+theme_override_styles/hover = ExtResource("4_roeov")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6jqmd")
+theme_override_styles/normal = ExtResource("4_roeov")
+toggle_mode = true
+button_group = ExtResource("4_n1hgm")
+text = "EAST
+HALL"
+alignment = 0
+metadata/location = "east_hall"
+
+[node name="BigGym" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 894.0
+offset_top = 362.202
+offset_right = 972.0
+offset_bottom = 404.202
+theme_override_fonts/font = ExtResource("3_33w3w")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i53xc")
+theme_override_styles/hover = ExtResource("4_roeov")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6jqmd")
+theme_override_styles/normal = ExtResource("4_roeov")
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("4_n1hgm")
+text = "BIG 
+GYM"
+alignment = 0
+metadata/location = "big_gym"
+
+[node name="SmallGym" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 858.0
+offset_top = 447.202
+offset_right = 936.0
+offset_bottom = 489.202
+theme_override_fonts/font = ExtResource("3_33w3w")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i53xc")
+theme_override_styles/hover = ExtResource("4_roeov")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6jqmd")
+theme_override_styles/normal = ExtResource("4_roeov")
+toggle_mode = true
+button_group = ExtResource("4_n1hgm")
+text = "SMALL
+GYM"
+alignment = 0
+metadata/location = "small_gym"
+
+[node name="NorthHall" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 787.0
+offset_top = 308.202
+offset_right = 865.0
+offset_bottom = 350.202
+theme_override_fonts/font = ExtResource("3_33w3w")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i53xc")
+theme_override_styles/hover = ExtResource("4_roeov")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6jqmd")
+theme_override_styles/normal = ExtResource("4_roeov")
+toggle_mode = true
+button_group = ExtResource("4_n1hgm")
+text = "NORTH
+HALL"
+alignment = 0
+metadata/location = "north_hall"
+
+[node name="ScienceLab" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 672.0
+offset_top = 391.202
+offset_right = 750.0
+offset_bottom = 433.202
+theme_override_fonts/font = ExtResource("3_33w3w")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i53xc")
+theme_override_styles/hover = ExtResource("4_roeov")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6jqmd")
+theme_override_styles/normal = ExtResource("4_roeov")
+toggle_mode = true
+button_group = ExtResource("4_n1hgm")
+text = "SCIENCE
+LAB"
+alignment = 0
+metadata/location = "science_lab"
+
+[node name="MainHall" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 733.0
+offset_top = 489.202
+offset_right = 811.0
+offset_bottom = 531.202
+theme_override_fonts/font = ExtResource("3_33w3w")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i53xc")
+theme_override_styles/hover = ExtResource("4_roeov")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6jqmd")
+theme_override_styles/normal = ExtResource("4_roeov")
+toggle_mode = true
+button_group = ExtResource("4_n1hgm")
+text = "MAIN
+HALL"
+alignment = 0
+metadata/location = "main_hall"
+
+[node name="OldCafe" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 953.0
+offset_top = 447.202
+offset_right = 1031.0
+offset_bottom = 489.202
+theme_override_fonts/font = ExtResource("3_33w3w")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/focus = SubResource("StyleBoxEmpty_i53xc")
+theme_override_styles/hover = ExtResource("4_roeov")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6jqmd")
+theme_override_styles/normal = ExtResource("4_roeov")
+toggle_mode = true
+button_group = ExtResource("4_n1hgm")
+text = "OLD
+CAFE"
+alignment = 0
+metadata/location = "old_cafe"
+
+[node name="You" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 906.0
+offset_top = 526.202
+offset_right = 940.0
+offset_bottom = 545.202
+theme_override_fonts/font = ExtResource("3_33w3w")
+text = "YOU"
+
+[node name="ColorRect" type="ColorRect" parent="Control/You"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 18.0
+offset_right = 19.0
+offset_bottom = 26.0
+color = Color(0.813258, 0.813258, 0.813258, 1)
