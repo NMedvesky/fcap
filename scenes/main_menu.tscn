@@ -1,10 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxhritgu733yp"]
+[gd_scene load_steps=13 format=3 uid="uid://cxhritgu733yp"]
 
 [ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_egnvw"]
 [ext_resource type="Texture2D" uid="uid://fhwgvg6yel0e" path="res://assets/andy.png" id="2_vd2sy"]
 [ext_resource type="Texture2D" uid="uid://daysfys1j15is" path="res://assets/andy3.png" id="3_1nenl"]
 [ext_resource type="Shader" path="res://static_shader.gdshader" id="3_4vg7o"]
 [ext_resource type="Texture2D" uid="uid://dguimrjyk1tkc" path="res://assets/andy2.png" id="4_svbk6"]
+[ext_resource type="Texture2D" uid="uid://d2ywt8gvu5dy" path="res://assets/sean.png" id="5_kewlq"]
+[ext_resource type="Texture2D" uid="uid://ci55a6guqfakm" path="res://assets/john.png" id="6_adb2b"]
 [ext_resource type="FontFile" uid="uid://bbukuelexghp0" path="res://assets/Volter.ttf" id="6_axw02"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sdrxs"]
@@ -73,6 +75,7 @@ scale = Vector2(2.52668, 2.52668)
 texture = ExtResource("2_vd2sy")
 
 [node name="Title" type="Label" parent="Control"]
+unique_name_in_owner = true
 material = SubResource("ShaderMaterial_cunw1")
 layout_mode = 0
 offset_left = 157.0
@@ -85,7 +88,8 @@ Classes
 at
 Providence"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+[node name="v_buttons" type="VBoxContainer" parent="Control"]
+unique_name_in_owner = true
 layout_mode = 0
 offset_left = 83.0
 offset_top = 304.0
@@ -93,7 +97,7 @@ offset_right = 432.0
 offset_bottom = 503.0
 theme_override_constants/separation = 5
 
-[node name="new_game" type="Button" parent="Control/VBoxContainer"]
+[node name="new_game" type="Button" parent="Control/v_buttons"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
@@ -112,7 +116,7 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_rmvww")
 text = "   New Game"
 alignment = 0
 
-[node name="continue_game" type="Button" parent="Control/VBoxContainer"]
+[node name="continue_game" type="Button" parent="Control/v_buttons"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
@@ -132,7 +136,7 @@ disabled = true
 text = "   Continue"
 alignment = 0
 
-[node name="custom_game" type="Button" parent="Control/VBoxContainer"]
+[node name="custom_game" type="Button" parent="Control/v_buttons"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
@@ -148,11 +152,10 @@ theme_override_styles/pressed_mirrored = SubResource("StyleBoxEmpty_rmvww")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_rmvww")
 theme_override_styles/normal_mirrored = SubResource("StyleBoxEmpty_rmvww")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_rmvww")
-disabled = true
 text = "   Custom"
 alignment = 0
 
-[node name="settings" type="Button" parent="Control/VBoxContainer"]
+[node name="settings" type="Button" parent="Control/v_buttons"]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(1, 1, 1, 1)
@@ -172,6 +175,173 @@ disabled = true
 text = "   Settings"
 alignment = 0
 
+[node name="CustomGameMenu" type="Control" parent="Control"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/CustomGameMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 576.0
+offset_top = 324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 250
+
+[node name="Sean" type="Control" parent="Control/CustomGameMenu/HBoxContainer"]
+layout_mode = 2
+
+[node name="StudentName" type="Label" parent="Control/CustomGameMenu/HBoxContainer/Sean"]
+layout_mode = 0
+offset_left = -57.0
+offset_top = -300.0
+offset_right = 53.0
+offset_bottom = -249.0
+theme_override_font_sizes/font_size = 50
+text = "Sean"
+
+[node name="Sean" type="Sprite2D" parent="Control/CustomGameMenu/HBoxContainer/Sean"]
+modulate = Color(1, 1, 1, 0.345098)
+position = Vector2(0, -18)
+scale = Vector2(0.815218, 0.815218)
+texture = ExtResource("5_kewlq")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/CustomGameMenu/HBoxContainer/Sean"]
+layout_mode = 0
+offset_left = -66.0
+offset_top = 219.0
+offset_right = 69.0
+offset_bottom = 278.0
+theme_override_constants/separation = 5
+
+[node name="Decrease" type="Button" parent="Control/CustomGameMenu/HBoxContainer/Sean/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "<"
+
+[node name="SeanLevel" type="Label" parent="Control/CustomGameMenu/HBoxContainer/Sean/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "20"
+horizontal_alignment = 1
+
+[node name="Increase" type="Button" parent="Control/CustomGameMenu/HBoxContainer/Sean/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = ">"
+
+[node name="Andy" type="Control" parent="Control/CustomGameMenu/HBoxContainer"]
+layout_mode = 2
+
+[node name="StudentName" type="Label" parent="Control/CustomGameMenu/HBoxContainer/Andy"]
+layout_mode = 0
+offset_left = -57.0
+offset_top = -300.0
+offset_right = 53.0
+offset_bottom = -249.0
+theme_override_font_sizes/font_size = 50
+text = "Andy"
+
+[node name="Andy2" type="Sprite2D" parent="Control/CustomGameMenu/HBoxContainer/Andy"]
+modulate = Color(1, 1, 1, 0.345098)
+position = Vector2(0, -18)
+scale = Vector2(0.815218, 0.815218)
+texture = ExtResource("2_vd2sy")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/CustomGameMenu/HBoxContainer/Andy"]
+layout_mode = 0
+offset_left = -66.0
+offset_top = 219.0
+offset_right = 69.0
+offset_bottom = 278.0
+theme_override_constants/separation = 5
+
+[node name="Decrease" type="Button" parent="Control/CustomGameMenu/HBoxContainer/Andy/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "<"
+
+[node name="AndyLevel" type="Label" parent="Control/CustomGameMenu/HBoxContainer/Andy/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "20"
+horizontal_alignment = 1
+
+[node name="Increase" type="Button" parent="Control/CustomGameMenu/HBoxContainer/Andy/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = ">"
+
+[node name="John" type="Control" parent="Control/CustomGameMenu/HBoxContainer"]
+layout_mode = 2
+
+[node name="StudentName" type="Label" parent="Control/CustomGameMenu/HBoxContainer/John"]
+layout_mode = 0
+offset_left = -57.0
+offset_top = -300.0
+offset_right = 53.0
+offset_bottom = -249.0
+theme_override_font_sizes/font_size = 50
+text = "John"
+
+[node name="John" type="Sprite2D" parent="Control/CustomGameMenu/HBoxContainer/John"]
+modulate = Color(1, 1, 1, 0.345098)
+position = Vector2(0, -18)
+scale = Vector2(0.815218, 0.815218)
+texture = ExtResource("6_adb2b")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/CustomGameMenu/HBoxContainer/John"]
+layout_mode = 0
+offset_left = -66.0
+offset_top = 219.0
+offset_right = 69.0
+offset_bottom = 278.0
+theme_override_constants/separation = 5
+
+[node name="Decrease" type="Button" parent="Control/CustomGameMenu/HBoxContainer/John/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "<"
+
+[node name="JohnLevel" type="Label" parent="Control/CustomGameMenu/HBoxContainer/John/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = "20"
+horizontal_alignment = 1
+
+[node name="Increase" type="Button" parent="Control/CustomGameMenu/HBoxContainer/John/HBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 50
+text = ">"
+
+[node name="BackButton" type="Button" parent="Control/CustomGameMenu"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 542.0
+offset_right = 156.0
+offset_bottom = 601.0
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[node name="StartButton" type="Button" parent="Control/CustomGameMenu"]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 39.0
+offset_right = 176.0
+offset_bottom = 98.0
+theme_override_font_sizes/font_size = 50
+text = "Start"
+
 [node name="Static" type="ColorRect" parent="Control"]
 material = SubResource("ShaderMaterial_bu1cd")
 layout_mode = 0
@@ -190,7 +360,7 @@ offset_top = 619.0
 offset_right = 57.0
 offset_bottom = 636.0
 grow_vertical = 0
-text = "v0.3.1"
+text = "v0.4.0"
 vertical_alignment = 2
 
 [node name="copyright" type="Label" parent="Control"]
@@ -246,13 +416,22 @@ horizontal_alignment = 1
 [node name="AndyTimer" type="Timer" parent="."]
 autostart = true
 
-[connection signal="mouse_entered" from="Control/VBoxContainer/new_game" to="." method="_on_new_game_mouse_entered"]
-[connection signal="mouse_exited" from="Control/VBoxContainer/new_game" to="." method="_on_new_game_mouse_exited"]
-[connection signal="pressed" from="Control/VBoxContainer/new_game" to="." method="_on_new_game_pressed"]
-[connection signal="mouse_entered" from="Control/VBoxContainer/continue_game" to="." method="_on_continue_game_mouse_entered"]
-[connection signal="mouse_exited" from="Control/VBoxContainer/continue_game" to="." method="_on_continue_game_mouse_exited"]
-[connection signal="mouse_entered" from="Control/VBoxContainer/custom_game" to="." method="_on_custom_game_mouse_entered"]
-[connection signal="mouse_exited" from="Control/VBoxContainer/custom_game" to="." method="_on_custom_game_mouse_exited"]
-[connection signal="mouse_entered" from="Control/VBoxContainer/settings" to="." method="_on_settings_mouse_entered"]
-[connection signal="mouse_exited" from="Control/VBoxContainer/settings" to="." method="_on_settings_mouse_exited"]
+[connection signal="mouse_entered" from="Control/v_buttons/new_game" to="." method="_on_new_game_mouse_entered"]
+[connection signal="mouse_exited" from="Control/v_buttons/new_game" to="." method="_on_new_game_mouse_exited"]
+[connection signal="pressed" from="Control/v_buttons/new_game" to="." method="_on_new_game_pressed"]
+[connection signal="mouse_entered" from="Control/v_buttons/continue_game" to="." method="_on_continue_game_mouse_entered"]
+[connection signal="mouse_exited" from="Control/v_buttons/continue_game" to="." method="_on_continue_game_mouse_exited"]
+[connection signal="mouse_entered" from="Control/v_buttons/custom_game" to="." method="_on_custom_game_mouse_entered"]
+[connection signal="mouse_exited" from="Control/v_buttons/custom_game" to="." method="_on_custom_game_mouse_exited"]
+[connection signal="pressed" from="Control/v_buttons/custom_game" to="." method="_on_custom_game_pressed"]
+[connection signal="mouse_entered" from="Control/v_buttons/settings" to="." method="_on_settings_mouse_entered"]
+[connection signal="mouse_exited" from="Control/v_buttons/settings" to="." method="_on_settings_mouse_exited"]
+[connection signal="pressed" from="Control/CustomGameMenu/HBoxContainer/Sean/HBoxContainer/Decrease" to="." method="_on_decrease_sean_pressed"]
+[connection signal="pressed" from="Control/CustomGameMenu/HBoxContainer/Sean/HBoxContainer/Increase" to="." method="_on_increase_sean_pressed"]
+[connection signal="pressed" from="Control/CustomGameMenu/HBoxContainer/Andy/HBoxContainer/Decrease" to="." method="_on_decrease_andy_pressed"]
+[connection signal="pressed" from="Control/CustomGameMenu/HBoxContainer/Andy/HBoxContainer/Increase" to="." method="_on_increase_andy_pressed"]
+[connection signal="pressed" from="Control/CustomGameMenu/HBoxContainer/John/HBoxContainer/Decrease" to="." method="_on_decrease_john_pressed"]
+[connection signal="pressed" from="Control/CustomGameMenu/HBoxContainer/John/HBoxContainer/Increase" to="." method="_on_increase_john_pressed"]
+[connection signal="pressed" from="Control/CustomGameMenu/BackButton" to="." method="_on_back_button_custom_pressed"]
+[connection signal="pressed" from="Control/CustomGameMenu/StartButton" to="." method="_on_start_button_custom_pressed"]
 [connection signal="timeout" from="AndyTimer" to="." method="_on_andy_timer_timeout"]
