@@ -43,15 +43,33 @@ func _on_power_outage():
     right_light(false)
     $CanvasLayer/ColorRect.modulate.a = 0.66
 
-    await get_tree().create_timer(3).timeout
+    %SFX/Fan.stop()
+    %SFX/PowerOutage.play()
+
+    await get_tree().create_timer(randf_range(3, 6)).timeout
 
     %Office/DarkAndy.visible = true
+    %SFX/MusicBox.play()
+
+    await get_tree().create_timer(randf_range(20, 55)).timeout
+
+    if Global.alive:
+        %SFX/MusicBox.stop()
+        SignalBus.jumpscare.emit("Andy")
 
 func _on_jumpscare(student_name):
     Global.alive = false
 
-    # jump scare here
+    AudioServer.set_bus_mute(1, true)
+    AudioServer.set_bus_mute(2, true)
+
+    %SFX/Jumpscare.play()
+
+    get_node(student_name + "Jump").visible = true
+    await get_tree().create_timer(5).timeout
     
+    AudioServer.set_bus_mute(1, false)
+    AudioServer.set_bus_mute(2, false)
     SceneSwitcher.switch_scene("res://scenes/class_over.tscn")
 
 func _on_left_area_mouse_entered():
@@ -73,6 +91,7 @@ func left_door(close):
     var tween = get_tree().create_tween()
     tween.tween_property(%LeftDoor, "position", Vector2(253, y_pos), DOOR_TIME)
     SignalBus.power_change.emit()
+    %SFX/Door.play()
 
 func right_door(close):
     Global.power_usage += int(close)*2 - 1
@@ -81,6 +100,7 @@ func right_door(close):
     var tween = get_tree().create_tween()
     tween.tween_property(%RightDoor, "position", Vector2(1150, y_pos), DOOR_TIME)
     SignalBus.power_change.emit()
+    %SFX/Door.play()
 
 func _on_left_door_button_toggled(toggled_on):
     left_door(toggled_on)
@@ -111,16 +131,12 @@ func left_light(on):
     SignalBus.power_change.emit()
     left_light_on = on
     %Office/LeftDarkness.visible = not on
-    if not right_light_on:
-        %Office/MiddleDarkness.visible = not on
 
 func right_light(on):
     Global.power_usage += int(on)*2 - 1
     SignalBus.power_change.emit()
     right_light_on = on
     %Office/RightDarkness.visible = not on
-    if not left_light_on:
-        %Office/MiddleDarkness.visible = not on
 
 func _on_right_light_button_toggled(toggled_on:bool):
     right_light(toggled_on)

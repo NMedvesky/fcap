@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://eh2xpi3cv3yy"]
+[gd_scene load_steps=5 format=3 uid="uid://eh2xpi3cv3yy"]
 
 [ext_resource type="Script" path="res://scripts/class_over.gd" id="1_sl8th"]
 [ext_resource type="PackedScene" uid="uid://c2rs1sgqd85r" path="res://scenes/static_shader.tscn" id="2_h1p7v"]
+[ext_resource type="AudioStream" uid="uid://b17f7w8up88js" path="res://assets/audio/static.ogg" id="3_rxngv"]
+[ext_resource type="AudioStream" uid="uid://cgtnoaf8g2w6k" path="res://assets/audio/bells.mp3" id="4_uab87"]
 
 [node name="ClassOver" type="Node2D"]
 script = ExtResource("1_sl8th")
@@ -45,3 +47,9 @@ text = "6 AM"
 horizontal_alignment = 1
 
 [node name="Node2D" parent="." instance=ExtResource("2_h1p7v")]
+
+[node name="StaticSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_rxngv")
+
+[node name="BellSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_uab87")

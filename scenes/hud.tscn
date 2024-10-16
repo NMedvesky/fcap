@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://baqi14unvsack"]
+[gd_scene load_steps=37 format=3 uid="uid://baqi14unvsack"]
 
 [ext_resource type="Script" path="res://scripts/hud.gd" id="1_emqp8"]
 [ext_resource type="FontFile" uid="uid://bbukuelexghp0" path="res://assets/Volter.ttf" id="1_o4w1q"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://mck6kcfxadtc" path="res://assets/camera_animation/0028.png" id="31_vkvt5"]
 [ext_resource type="Texture2D" uid="uid://v7noawvihigv" path="res://assets/camera_animation/0029.png" id="32_am28a"]
 [ext_resource type="Texture2D" uid="uid://bhn555081aev1" path="res://assets/camera_animation/0030.png" id="33_xf4ud"]
+[ext_resource type="AudioStream" uid="uid://bej8lqcjurj6l" path="res://assets/audio/monitor_flip.ogg" id="34_1ht72"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_fdr3m"]
 animations = [{
@@ -337,6 +338,10 @@ shape = SubResource("RectangleShape2D_enreg")
 
 [node name="ClockTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="FlipSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("34_1ht72")
+bus = &"Camera"
 
 [connection signal="mouse_entered" from="Control/FlipCamera" to="." method="_on_flip_camera_mouse_entered"]
 [connection signal="timeout" from="ClockTimer" to="." method="_on_clock_timer_timeout"]

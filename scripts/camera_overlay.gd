@@ -26,3 +26,4 @@ func change_camera(button):
     camera = location_scene.instantiate()
     add_child(camera)
     move_child(camera, 0)
+    $SwitchCamera.play()

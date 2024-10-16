@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvuson6irguqw"
-path="res://.godot/imported/fnaf.webp-0059ed58cae5f82cb1fe064f297ebe80.ctex"
+uid="uid://0r1ekkca4653"
+path="res://.godot/imported/sean_jump.png-9439b8a729fe7c2434221ee77e630f93.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/fnaf.webp"
-dest_files=["res://.godot/imported/fnaf.webp-0059ed58cae5f82cb1fe064f297ebe80.ctex"]
+source_file="res://assets/sean_jump.png"
+dest_files=["res://.godot/imported/sean_jump.png-9439b8a729fe7c2434221ee77e630f93.ctex"]
 
 [params]
 

@@ -4,7 +4,36 @@ const POWER_DRAIN = [
     0.125,
     0.14,
     0.15,
-    0.16667
+    0.16,
+    0.16,
+]
+
+const STUDENT_LEVELS = [
+    {
+        "andy": 0,
+        "sean": 3,
+        "john": 2,
+    },
+    {
+        "andy": 0,
+        "sean": 4,
+        "john": 4,
+    },
+    {
+        "andy": 2,
+        "sean": 5,
+        "john": 6,
+    },
+    {
+        "andy": 6,
+        "sean": 8,
+        "john": 8,
+    },
+    {
+        "andy": 15,
+        "sean": 15,
+        "john": 15,
+    },
 ]
 
 const LOCATIONS = {
@@ -31,6 +60,7 @@ const OFFICE_POS = {
 
 ## SESSION INFO
 var class_num = 1
+var custom_game = false
 
 ## NIGHT INFO
 var power : float = 100.0

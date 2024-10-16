@@ -1,9 +1,18 @@
 extends Node2D
 
+var andy_level = 20
+var sean_level = 20
+var john_level = 20
+
 func wait(seconds):
     await get_tree().create_timer(seconds).timeout
 
 func _ready():
+    if Global.class_num > 1 and Global.class_num != 5:
+        %continue_game.disabled = false
+        %continue_game/info_label.visible = true
+        %continue_game/info_label.text = "Class " + str(Global.class_num)
+
     update_custom_menu()
 
 func _on_andy_timer_timeout():
@@ -20,6 +29,13 @@ func _on_new_game_pressed():
     %custom_game.disabled = true
     %settings.disabled = true
 
+    Global.custom_game = false
+    Global.class_num = 1
+
+    var audio_tween = get_tree().create_tween()
+    audio_tween.tween_property($MainMenuMusic, "volume_db", -15, 2)
+
+    $ColorRect.visible = true
     var tween = self.create_tween()
     tween.tween_property($ColorRect, "modulate:a", 1.0, 2)
     tween.tween_interval(1)
@@ -28,7 +44,11 @@ func _on_new_game_pressed():
     $Class.text = $Class.text.left(-1) + str(Global.class_num)
     $Class.visible = true
     await wait(2)
-    
+
+    Students.andy.update_level(Global.STUDENT_LEVELS[0]["andy"])
+    Students.sean.update_level(Global.STUDENT_LEVELS[0]["sean"])
+    Students.john.update_level(Global.STUDENT_LEVELS[0]["john"])
+
     var root = get_tree().get_root()
     Students.andy.init(root)
     Students.sean.init(root)
@@ -36,14 +56,19 @@ func _on_new_game_pressed():
     SceneSwitcher.switch_scene("res://scenes/office.tscn")
 
 
-
 ### Hover selection arrows >>
 func add_selection_arrows(button):
-    if button.disabled: return
+    if button:
+        if button.disabled: return
+    else:
+        return
     button.text = ">> " + button.text.right(-3)
 
 func remove_selection_arrows(button):
-    if button.disabled: return
+    if button:
+        if button.disabled: return
+    else:
+        return
     button.text = "   " + button.text.right(-3)
 
 func _on_new_game_mouse_entered():
@@ -70,14 +95,7 @@ func _on_settings_mouse_entered():
 func _on_settings_mouse_exited():
     remove_selection_arrows(%settings)
 
-
-
-
-
-var andy_level = 20
-var sean_level = 20
-var john_level = 20
-
+## Custom Menu
 func update_custom_menu():
     %AndyLevel.text = str(andy_level)
     %SeanLevel.text = str(sean_level)
@@ -130,9 +148,25 @@ func _on_back_button_custom_pressed():
 
 
 func _on_start_button_custom_pressed():
+    %new_game.disabled = true
+    %continue_game.disabled = true
+    %custom_game.disabled = true
+    %settings.disabled = true
+
+    Global.custom_game = true
+
     Students.andy.update_level(andy_level)
     Students.sean.update_level(sean_level)
     Students.john.update_level(john_level)
+
+    var audio_tween = get_tree().create_tween()
+    audio_tween.tween_property($MainMenuMusic, "volume_db", -15, 2)
+
+    $ColorRect.visible = true
+    var tween = self.create_tween()
+    tween.tween_property($ColorRect, "modulate:a", 1.0, 2)
+    tween.tween_interval(1)
+    await tween.finished
 
     var root = get_tree().get_root()
     Students.andy.init(root)
@@ -140,3 +174,34 @@ func _on_start_button_custom_pressed():
     Students.john.init(root)
     SceneSwitcher.switch_scene("res://scenes/office.tscn")
 
+
+func _on_continue_game_pressed():
+    %new_game.disabled = true
+    %continue_game.disabled = true
+    %custom_game.disabled = true
+    %settings.disabled = true
+
+    Global.custom_game = false
+
+    var audio_tween = get_tree().create_tween()
+    audio_tween.tween_property($MainMenuMusic, "volume_db", -15, 2)
+
+    $ColorRect.visible = true
+    var tween = self.create_tween()
+    tween.tween_property($ColorRect, "modulate:a", 1.0, 2)
+    tween.tween_interval(1)
+    await tween.finished
+
+    $Class.text = $Class.text.left(-1) + str(Global.class_num)
+    $Class.visible = true
+    await wait(2)
+
+    Students.andy.update_level(Global.STUDENT_LEVELS[Global.class_num - 1]["andy"])
+    Students.sean.update_level(Global.STUDENT_LEVELS[Global.class_num - 1]["sean"])
+    Students.john.update_level(Global.STUDENT_LEVELS[Global.class_num - 1]["john"])
+
+    var root = get_tree().get_root()
+    Students.andy.init(root)
+    Students.sean.init(root)
+    Students.john.init(root)
+    SceneSwitcher.switch_scene("res://scenes/office.tscn")

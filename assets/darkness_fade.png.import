@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ccjggrc0h2cvp"
-path="res://.godot/imported/schoolmap.png-1923c149d68fcf3fa29c9f960f2a3826.ctex"
+uid="uid://77l4gu14jhr8"
+path="res://.godot/imported/darkness_fade.png-bceb2b4ee57edb5eedf01b14edff5d05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/schoolmap.png"
-dest_files=["res://.godot/imported/schoolmap.png-1923c149d68fcf3fa29c9f960f2a3826.ctex"]
+source_file="res://assets/darkness_fade.png"
+dest_files=["res://.godot/imported/darkness_fade.png-bceb2b4ee57edb5eedf01b14edff5d05.ctex"]
 
 [params]
 

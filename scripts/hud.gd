@@ -58,12 +58,16 @@ func _on_flip_camera_mouse_entered():
         SignalBus.power_change.emit()
 
         %CameraFlip.play_backwards()
+        $FlipSFX.play()
+        AudioServer.set_bus_volume_db(1, 0)
         await get_tree().create_timer(0.5).timeout
     else:
         if Global.power <= 0: return
 
         Global.cams = true
         %CameraFlip.play()
+        $FlipSFX.play()
+        AudioServer.set_bus_volume_db(1, -5)
         await get_tree().create_timer(0.5).timeout
         cams.visible = true
 

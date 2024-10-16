@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://crqusqhylq0jo"]
+[gd_scene load_steps=11 format=3 uid="uid://crqusqhylq0jo"]
 
 [ext_resource type="Script" path="res://scripts/camera_overlay.gd" id="1_ah18j"]
 [ext_resource type="Shader" path="res://static_shader.gdshader" id="1_okjs3"]
@@ -6,6 +6,7 @@
 [ext_resource type="FontFile" uid="uid://bbukuelexghp0" path="res://assets/Volter.ttf" id="3_33w3w"]
 [ext_resource type="ButtonGroup" uid="uid://43t7wp06gqmf" path="res://camera_button_group.tres" id="4_n1hgm"]
 [ext_resource type="StyleBox" uid="uid://bww25uwf0dt3v" path="res://camera_button_normal.tres" id="4_roeov"]
+[ext_resource type="AudioStream" uid="uid://bjauenpp5onu7" path="res://assets/audio/switch_camera.ogg" id="7_2pk78"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_axh76"]
 shader = ExtResource("1_okjs3")
@@ -233,3 +234,7 @@ offset_top = 18.0
 offset_right = 19.0
 offset_bottom = 26.0
 color = Color(0.813258, 0.813258, 0.813258, 1)
+
+[node name="SwitchCamera" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_2pk78")
+bus = &"Camera"
